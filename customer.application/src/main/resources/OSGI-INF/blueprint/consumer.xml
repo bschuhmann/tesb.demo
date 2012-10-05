@@ -1,0 +1,20 @@
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cxf="http://cxf.apache.org/blueprint/core"
+	xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
+	xsi:schemaLocation="
+  http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+  http://www.osgi.org/xmlns/blueprint-ext/v1.1.0 https://svn.apache.org/repos/asf/aries/tags/blueprint-0.3.1/blueprint-core/src/main/resources/org/apache/aries/blueprint/ext/blueprint-ext.xsd  
+  http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd
+  http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
+  ">
+
+
+	<bean id="customerApplication"
+		class="org.talend.ps.demo.customer.application.CustomerApplication"
+		init-method="startUp">
+		<property name="customerService" ref="customerService" />
+	</bean>
+
+	<reference id="customerService" interface="com.example.customerservice.CustomerService" />
+
+</blueprint>
