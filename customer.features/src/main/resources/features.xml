@@ -26,12 +26,6 @@
 		<bundle>mvn:${project.groupId}/customer.provider.remote/${project.version}</bundle>
 	</feature>
 
-	<feature name="customer-provider-local" version="${project.version}">
-		<bundle>mvn:${project.groupId}/customer.common/${project.version}</bundle>
-		<bundle>mvn:${project.groupId}/customer.provider.logic/${project.version}</bundle>
-		<bundle>mvn:${project.groupId}/customer.provider.local/${project.version}</bundle>
-	</feature>
-
 	<feature name="customer-application-local" version="${project.version}">
 		<bundle>mvn:${project.groupId}/customer.common/${project.version}</bundle>
 		<bundle>mvn:${project.groupId}/customer.application/${project.version}</bundle>

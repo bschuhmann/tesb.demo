@@ -78,7 +78,6 @@
 		<module>customer.consumer.remote</module>
 		<module>customer.provider.logic</module>
 		<module>customer.provider.remote</module>
-		<module>customer.provider.local</module>
 		<module>customer.features</module>
 	</modules>
 

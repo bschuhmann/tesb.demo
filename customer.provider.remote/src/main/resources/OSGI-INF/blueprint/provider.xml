@@ -10,10 +10,10 @@
   ">
 
 	
-	<bean id="simpleCustomerService" class="org.talend.ps.demo.customer.provider.logic.SimpleCustomerService"/>
+        <service id="customerService" ref="customServiceClient" interface="com.example.customerservice.CustomerService" />
 
 	<jaxws:endpoint xmlns:tns="http://customerservice.example.com/"
-		implementor="#simpleCustomerService" endpointName="tns:CustomerServiceEndpoint"
+		implementor="#customerService" endpointName="tns:CustomerServiceEndpoint"
 		serviceName="tns:CustomerService" address="/CustomerService">
 	</jaxws:endpoint>
 
