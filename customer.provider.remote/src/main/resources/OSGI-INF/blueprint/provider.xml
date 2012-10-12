@@ -8,9 +8,12 @@
   http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd
   http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
   ">
-
 	
-        <service id="customerService" ref="customServiceClient" interface="com.example.customerservice.CustomerService" />
+    <reference id="customerService" 
+    	interface="com.example.customerservice.CustomerService"
+    	filter="!(remote=true)" 
+    	availability="mandatory" 
+    	timeout="10000"/>
 
 	<jaxws:endpoint xmlns:tns="http://customerservice.example.com/"
 		implementor="#customerService" endpointName="tns:CustomerServiceEndpoint"

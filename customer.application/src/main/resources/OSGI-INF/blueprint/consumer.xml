@@ -11,10 +11,14 @@
 
 	<bean id="customerApplication"
 		class="org.talend.ps.demo.customer.application.CustomerApplication"
-		init-method="startUp">
+		init-method="start"
+		destroy-method="stop">
 		<property name="customerService" ref="customerService" />
 	</bean>
 
-	<reference id="customerService" interface="com.example.customerservice.CustomerService" />
+	<reference id="customerService"
+		interface="com.example.customerservice.CustomerService" 
+		filter="(remote=true)"
+		availability="mandatory"/>
 
 </blueprint>

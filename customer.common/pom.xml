@@ -34,13 +34,13 @@
      	 <plugin>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-codegen-plugin</artifactId>
-                <version>${cxf.version}</version>
                 <executions>
                     <execution>
                         <id>generate-sources</id>
                         <phase>generate-sources</phase>
                         <configuration>
                             <wsdlRoot>src/main/resources/wsdl</wsdlRoot>
+                            <frontend>jaxws21</frontend>
                         </configuration>
                         <goals>
                             <goal>wsdl2java</goal>

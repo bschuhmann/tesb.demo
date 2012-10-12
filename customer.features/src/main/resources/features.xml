@@ -21,17 +21,14 @@
 <features xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
 
 	<feature name="customer-provider-remote" version="${project.version}">
+		<feature>cxf</feature>
 		<bundle>mvn:${project.groupId}/customer.common/${project.version}</bundle>
 		<bundle>mvn:${project.groupId}/customer.provider.logic/${project.version}</bundle>
 		<bundle>mvn:${project.groupId}/customer.provider.remote/${project.version}</bundle>
 	</feature>
 
-	<feature name="customer-application-local" version="${project.version}">
-		<bundle>mvn:${project.groupId}/customer.common/${project.version}</bundle>
-		<bundle>mvn:${project.groupId}/customer.application/${project.version}</bundle>
-	</feature>
-
 	<feature name="customer-application-remote" version="${project.version}">
+		<feature>cxf</feature>
 		<bundle>mvn:${project.groupId}/customer.common/${project.version}</bundle>
 		<bundle>mvn:${project.groupId}/customer.application/${project.version}</bundle>
 		<bundle>mvn:${project.groupId}/customer.consumer.remote/${project.version}</bundle>

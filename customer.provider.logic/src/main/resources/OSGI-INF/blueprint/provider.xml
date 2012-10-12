@@ -10,8 +10,11 @@
   ">
 
 	
-	<bean id="simpleCustomerService" class="org.talend.ps.demo.customer.provider.logic.SimpleCustomerService"/>
+	<bean id="simpleCustomerService" 
+		class="org.talend.ps.demo.customer.provider.logic.SimpleCustomerService"/>
 
-        <service id="customerService" ref="simpleCustomerService" interface="com.example.customerservice.CustomerService" />
+    <service id="customerService" 
+    	ref="simpleCustomerService" 
+    	interface="com.example.customerservice.CustomerService" />
 
 </blueprint>

@@ -8,16 +8,19 @@
   http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd
   http://cxf.apache.org/blueprint/core http://cxf.apache.org/schemas/blueprint/core.xsd
   ">
-
 	
 	<jaxws:client id="customServiceClient"
 		xmlns:serviceNamespace="http://customerservice.example.com/"
 		serviceClass="com.example.customerservice.CustomerService"
 		serviceName="serviceNamespace:CustomerService"
-                endpointName="serviceNamespace:CustomerServiceSOAP"
-		address="http://localhost:8040/services/CustomerService">		
+        endpointName="serviceNamespace:CustomerServiceSOAP"
+		address="http://localhost:8181/cxf/CustomerService">		
 	</jaxws:client>
 
-        <service id="customerService" ref="customServiceClient" interface="com.example.customerservice.CustomerService" />
+    <service ref="customServiceClient" interface="com.example.customerservice.CustomerService">
+    	<service-properties>
+    		<entry key="remote" value="true"/>
+    	</service-properties>
+    </service>
 
 </blueprint>
