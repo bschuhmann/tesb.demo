@@ -18,7 +18,6 @@
 
 	<reference id="customerService"
 		interface="com.example.customerservice.CustomerService" 
-		filter="(remote=true)"
 		availability="mandatory"/>
 
 </blueprint>

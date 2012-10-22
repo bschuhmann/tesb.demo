@@ -15,6 +15,14 @@
 
     <service id="customerService" 
     	ref="simpleCustomerService" 
-    	interface="com.example.customerservice.CustomerService" />
+    	interface="com.example.customerservice.CustomerService">
+    	<service-properties>
+    		<entry key="service.exported.interfaces" value="*"/>
+    		<entry key="service.exported.configs" value="org.apache.cxf.ws"/>
+    		<entry key="org.apache.cxf.ws.address" value="http://localhost:9090/CustomerService"/>
+    		<entry key="org.apache.cxf.ws.frontend" value="jaxws"/>
+    		<entry key="org.apache.cxf.ws.databinding" value="jaxb"/> 
+    	</service-properties>
+    </service>
 
 </blueprint>

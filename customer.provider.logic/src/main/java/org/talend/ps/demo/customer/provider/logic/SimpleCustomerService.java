@@ -17,7 +17,7 @@ public class SimpleCustomerService implements CustomerService {
 	@Override
 	public Customer getCustomerByName(String name)
 			throws NoSuchCustomerException {
-		LOG.info("Called getCustomerByName for: " + name);
+		LOG.info("Called my getCustomerByName for: " + name);
 		Customer customer = new Customer();
 		customer.setName(name);
 		customer.setCustomerId(12345);

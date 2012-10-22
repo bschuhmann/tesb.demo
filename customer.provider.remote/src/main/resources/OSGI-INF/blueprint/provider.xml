@@ -18,6 +18,9 @@
 	<jaxws:endpoint xmlns:tns="http://customerservice.example.com/"
 		implementor="#customerService" endpointName="tns:CustomerServiceEndpoint"
 		serviceName="tns:CustomerService" address="/CustomerService">
+		<jaxws:features>
+			<bean id="locator" class="org.talend.esb.servicelocator.cxf.LocatorFeature"/>
+		</jaxws:features>
 	</jaxws:endpoint>
 
 </blueprint>

@@ -1,25 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <artifactId>customer.provider.remote</artifactId>
-  <packaging>bundle</packaging>
+	<artifactId>customer.provider.remote</artifactId>
+	<packaging>bundle</packaging>
 
-  <name>customer.provider.remote</name>
-  <url>http://maven.apache.org</url>
+	<name>customer.provider.remote</name>
+	<url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
 
-  <parent>
-    <groupId>org.talend.ps.demo</groupId>
-    <artifactId>customer.parent</artifactId>
-    <version>0.1-SNAPSHOT</version>
-  </parent>
+	<parent>
+		<groupId>org.talend.ps.demo</groupId>
+		<artifactId>customer.parent</artifactId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
 
-    <build>
-        <plugins>
+	<dependencies>
+		<dependency>
+			<groupId>org.talend.esb</groupId>
+			<artifactId>locator</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
 			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
@@ -27,11 +34,11 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${project.name}</Bundle-SymbolicName>
-                        <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
+						<Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
 					</instructions>
 				</configuration>
 			</plugin>
-        </plugins>
-    </build>
+		</plugins>
+	</build>
 
 </project>

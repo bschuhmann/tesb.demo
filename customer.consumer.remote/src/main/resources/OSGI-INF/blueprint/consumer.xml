@@ -14,7 +14,11 @@
 		serviceClass="com.example.customerservice.CustomerService"
 		serviceName="serviceNamespace:CustomerService"
         endpointName="serviceNamespace:CustomerServiceSOAP"
-		address="http://localhost:8181/cxf/CustomerService">		
+		address="locator://CustomerService">
+		<jaxws:features>
+			<bean id="locator" class="org.talend.esb.servicelocator.cxf.LocatorFeature"/>
+		</jaxws:features>
+				
 	</jaxws:client>
 
     <service ref="customServiceClient" interface="com.example.customerservice.CustomerService">
