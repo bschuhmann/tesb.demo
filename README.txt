@@ -8,6 +8,10 @@ features:install customer-application-remote
 features:addurl mvn:org.apache.cxf.dosgi/cxf-dosgi/1.4-SNAPSHOT/xml/features
 features:install cxf-dosgi-discovery-distributed
 
+Create config "etc/org.apache.cxf.dosgi.discovery.zookeeper.cfg" with the following content:
+zookeeper.port=2181
+zookeeper.host=localhost
+
 # Setup for container that hosts the zookeeper server
 #----------------------------------------------------
 features:install cxf-dosgi-zookeeper-server
