@@ -1,9 +1,11 @@
 package org.talend.ps.demo.customer.itests;
 
+import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.editConfigurationFilePut;
 import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.karafDistributionConfiguration;
 import static org.apache.karaf.tooling.exam.options.KarafDistributionOption.logLevel;
 import static org.ops4j.pax.exam.CoreOptions.maven;
 import static org.ops4j.pax.exam.CoreOptions.scanFeatures;
+import static org.ops4j.pax.exam.CoreOptions.vmOption;
 
 import java.io.File;
 import java.net.URISyntaxException;
@@ -30,6 +32,8 @@ import com.example.customerservice.CustomerService;
 @RunWith(JUnit4TestRunner.class)
 @ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
 public class CustomerServiceTest {
+    private static final String HTTP_PORT = "9191";
+
     private static Logger LOG = LoggerFactory.getLogger(CustomerServiceTest.class);
 
     @Inject
@@ -50,13 +54,14 @@ public class CustomerServiceTest {
             logLevel(LogLevelOption.LogLevel.INFO),
             scanFeatures(cxfFeatures, "cxf"),
             scanFeatures(tesbFeatures, "tesb-locator-client").start(),
-            scanFeatures(customerFeatures, "customer-provider-remote").start()
+            scanFeatures(customerFeatures, "customer-provider-remote").start(),
+            editConfigurationFilePut("etc/org.ops4j.pax.web.cfg", "org.osgi.service.http.port", HTTP_PORT),
+            //vmOption( "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005" )
         };
     }
     
     @Test
     public void testCall() throws URISyntaxException, Exception {
-        Thread.sleep(100000);
         Customer customer = customerService.getCustomerByName("testName");
         LOG.info("Got reply from customerService with customer: " + customer.getCustomerId());
     }
