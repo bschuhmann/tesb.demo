@@ -11,6 +11,8 @@ import java.net.URISyntaxException;
 
 import javax.inject.Inject;
 
+import junit.framework.Assert;
+
 import org.apache.karaf.tooling.exam.options.LogLevelOption;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,8 +24,6 @@ import org.ops4j.pax.exam.options.MavenArtifactUrlReference;
 import org.ops4j.pax.exam.options.MavenUrlReference;
 import org.ops4j.pax.exam.spi.reactors.AllConfinedStagedReactorFactory;
 import org.osgi.framework.BundleContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.example.customerservice.Customer;
 import com.example.customerservice.CustomerService;
@@ -32,8 +32,6 @@ import com.example.customerservice.CustomerService;
 @ExamReactorStrategy(AllConfinedStagedReactorFactory.class)
 public class CustomerServiceTest {
     private static final String HTTP_PORT = "9191";
-
-    private static Logger LOG = LoggerFactory.getLogger(CustomerServiceTest.class);
 
     @Inject
     BundleContext bundleContext;
@@ -62,7 +60,7 @@ public class CustomerServiceTest {
     @Test
     public void testCall() throws URISyntaxException, Exception {
         Customer customer = customerService.getCustomerByName("testName");
-        LOG.info("Got reply from customerService with customer: " + customer.getCustomerId());
+        Assert.assertEquals(12345, customer.getCustomerId());
     }
 
 }
