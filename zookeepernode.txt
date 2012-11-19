@@ -1,0 +1,33 @@
+[zk: localhost:2181(CONNECTED) 11] get /osgi/service_registry/com/example/customerservice/CustomerService/localhost#9090##CustomerService    
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint-descriptions xmlns="http://www.osgi.org/xmlns/rsa/v1.0.0">
+  <endpoint-description>
+    <property name="endpoint.service.id" value-type="Long" value="258" />
+    <property name="objectClass">
+      <array>
+        <value>com.example.customerservice.CustomerService</value>
+      </array>
+    </property>
+    <property name="service.imported" value="true" />
+    <property name="org.apache.cxf.ws.databinding" value="jaxb" />
+    <property name="endpoint.id" value="http://localhost:9090/CustomerService" />
+    <property name="service.imported.configs">
+      <array>
+        <value>org.apache.cxf.ws</value>
+      </array>
+    </property>
+    <property name="service.intents">
+      <array>
+        <value>SOAP.1_1</value>
+        <value>HTTP</value>
+        <value>SOAP</value>
+      </array>
+    </property>
+    <property name="org.apache.cxf.ws.frontend" value="jaxws" />
+    <property name="endpoint.package.version.com.example.customerservice" value="0.1.0.SNAPSHOT" />   
+    <property name="osgi.service.blueprint.compname" value="simpleCustomerService" />
+    <property name="endpoint.framework.uuid" value="9b61f341-831f-480d-83ec-7d46eb38a893" />
+    <property name="org.apache.cxf.ws.address" value="http://localhost:9090/CustomerService" />
+   
+  </endpoint-description>
+</endpoint-descriptions>

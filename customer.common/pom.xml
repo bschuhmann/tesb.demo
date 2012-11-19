@@ -26,7 +26,6 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.name}</Bundle-SymbolicName>
-                        <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
                     </instructions>
                 </configuration>
             </plugin>
